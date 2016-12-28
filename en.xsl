@@ -2,9 +2,6 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="html" encoding="utf-8"/>
 
-<xsl:param name="lang" select="'en'"/>
-<xsl:param name="localeUrl" select="'Resources.resx'"/>
-
 <xsl:variable name="maxcols">10</xsl:variable>
 <xsl:variable name="fontsize">+1</xsl:variable>
 <xsl:variable name="week">7</xsl:variable>
