@@ -1,0 +1,150 @@
+@page {
+	size: A4;
+	margin: 1cm;
+}
+
+@media print {
+  html, body {
+	width: 210mm;
+	height: 297mm;
+  }
+}
+
+/*----------------------------------------------------------------------------*/
+
+body {
+	font-family: sans-serif;
+}
+
+.capt {
+	font-size: 50%;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 15px;
+}
+
+#main-capt {
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+h3 {
+	font-style: italic;
+}
+
+h2, h3 {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.m {
+	text-align: center;
+}
+
+div.l {
+	float: left;
+	margin-right: 10px;
+}
+
+/*----------------------------------------------------------------------------*/
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: hide;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	width: 100%;
+	page-break-inside: avoid;
+}
+
+.section table {
+	margin-bottom: 5px;
+}
+
+td {
+	border: 1px solid black;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.section table td {
+	border: 1px solid darkgrey;
+}
+
+td.links {
+	text-align: left;
+}
+
+td.rechts {
+	text-align: right;
+}
+
+td.mitte {
+	text-align: center;
+}
+
+/*----------------------------------------------------------------------------*/
+/* HEAD */
+
+.head tr:first-child td {
+	width: 25%;
+}
+
+.head img {
+	display: block;
+	margin: auto;
+	max-width: inherit;
+	width: 100%;
+}
+
+/*----------------------------------------------------------------------------*/
+/* TRACKS */
+
+.tracks td:nth-child(1) { width: 200px; }
+.tracks td:nth-child(2) { width: 100px; }
+.tracks td:nth-child(3) { width: 60px; }
+
+
+/*----------------------------------------------------------------------------*/
+/* PASSENGER TRAFFIC */
+
+.platforms td:nth-child(1) { width: 200px; }
+.platforms td:nth-child(2) { width: 60px; }
+.platforms td:nth-child(3) { width: 100px; }
+.platforms td:nth-child(4) { width: 0px; border: 0px; }
+.platforms td:nth-child(5) { vertical-align: top; }
+
+/*----------------------------------------------------------------------------*/
+/* LOADING PLACES */
+
+.cplaces td:nth-child(1) { width: 200px; }
+.cplaces td:nth-child(2) { width: 150px; }
+.cplaces td:nth-child(3) { width: 100px; }
+.cplaces td:nth-child(4) { width: 60px; }
+.cplaces td:nth-child(5) { width: 0px; border: 5px; }
+.cplaces td:nth-child(6) { vertical-align: top; }
+
+.cplaces tr:last-child td:nth-child(1) { border-right: 0px; }
+.cplaces tr:last-child td:nth-child(2) { border-right: 0px; border-left: 0px; }
+.cplaces tr:last-child td:nth-child(3) { border-left: 0px; }
+
+/*----------------------------------------------------------------------------*/
+/* GOODS */
+
+.goods td:nth-child(2) { width: 40px; }
+.goods td:nth-child(6) { width: 100px; }
+
+/*----------------------------------------------------------------------------*/
+/* SUM */
+
+.sum td:nth-child(1) { text-align: right; }
+.sum tr:last-child { font-weight: bold; }
+.sum { width: 400px; margin: auto; }
+
+/*----------------------------------------------------------------------------*/
