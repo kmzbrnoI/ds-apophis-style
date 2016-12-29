@@ -9,22 +9,26 @@
 <xsl:variable name="locolength">20</xsl:variable>
 <xsl:variable name="meanaxlelength">5</xsl:variable>
 <xsl:template match="/">
+
 <html>
 	<head>
 		<title><xsl:value-of select="bahnhof/name"/></title>
 		<meta http-equiv="Content-Style-Type" content="text/css" />
-		<link rel="stylesheet" type="text/css" href="style.css" />
+		<xsl:for-each select="bahnhof">
+			<link rel="stylesheet" type="text/css" href="{basecss}" />
+			<link rel="stylesheet" type="text/css" href="{langcss}" />
+		</xsl:for-each>
 	</head>
 	<body>
 		<xsl:for-each select="bahnhof">
-			<div id="main-capt">station</div>
+			<div id="main-capt"></div>
 			<h1><xsl:value-of select="name"/></h1>
 			<table class="head">
 				<tr>
-					<td><xsl:text disable-output-escaping="yes">Short: </xsl:text><span><xsl:value-of select="kuerzel"/></span></td>
-					<td>Type: <span><xsl:value-of select="typ"/></span></td>
-					<td><xsl:text disable-output-escaping="yes">Scale: </xsl:text><span>1:<xsl:value-of select="maszstab"/></span></td>
-					<td>Module ID: <span><xsl:value-of select="modulnr"/></span></td>
+					<td><span id="short"></span>&#160;<span><xsl:value-of select="kuerzel"/></span></td>
+					<td><span id="type"></span>&#160;<span><xsl:value-of select="typ"/></span></td>
+					<td><span id="scale"></span>&#160;<span>1:<xsl:value-of select="maszstab"/></span></td>
+					<td><span id="module-id"></span>&#160;<span><xsl:value-of select="modulnr"/></span></td>
 				</tr>
 				<tr>
 					<td colspan="4"><xsl:apply-templates select="plan"/></td>
@@ -158,15 +162,15 @@
 <xsl:template match="gleise">
 	<table class="section">
 	<tr><td>
-	<h2>Tracks</h2>
-	<h3>Main tracks</h3>
+	<h2 id="tracks"></h2>
+	<h3 id="main-tracks"></h3>
 
 	<table class="tracks">
 		<tr>
-			<th>Track</th>
-			<th>Length</th>
-			<th>Axles</th>
-			<th>Remarks</th>
+			<th id="track"></th>
+			<th id="len"></th>
+			<th id="axles"></th>
+			<th id="track-remarks"></th>
 		</tr>
 
 		<xsl:for-each select="hgleise/gleis">
@@ -178,15 +182,16 @@
 	<!-- Wenn es welche gibt dann gebe sie aus -->
 	<xsl:variable name="content"><xsl:value-of select="count(ngleise/*)"/></xsl:variable>
 	<xsl:if test="$content &gt; 0">
+		<h3 id="side-tracks"></h3>
+
 		<table class="tracks">
 			<tr>
-				<th>Track</th>
-				<th>Length</th>
-				<th>Axles</th>
-			<th>Remarks</th>
+				<th id="track"></th>
+				<th id="len"></th>
+				<th id="axles"></th>
+				<th id="track-remarks"></th>
 			</tr>
 
-			<h3>Side tracks</h3>
 			<xsl:for-each select="ngleise/gleis">
 				<xsl:call-template name="ugleis" />
 			</xsl:for-each>
@@ -194,7 +199,7 @@
 	</xsl:if>
 
 	</td></tr><tr><td class="mitte">
-		<xsl:text disable-output-escaping="yes">Note: Calculation of effective length based on assumptions: 10 cm effective length correspond to 2 axles.</xsl:text>
+		<span id="track-note"></span>
 	</td></tr></table>
 </xsl:template>
 
@@ -215,8 +220,8 @@
 </xsl:template>
 
 <xsl:template name="ugleis">
-	 <tr>
-		<td>Track <strong><xsl:value-of select="name"/></strong></td>
+	<tr>
+		<td><span id="track"></span>&#160;<strong><xsl:value-of select="name"/></strong></td>
 			<td class="rechts"><xsl:apply-templates select="laenge"/></td>
 			<td class="rechts">
 				<xsl:call-template name="achslaenge1">
@@ -233,15 +238,15 @@
 <xsl:template match="pv">
 	<table class="section">
 	<tr><td>
-	<h2>Passenger traffic</h2>
+	<h2 id="passenger-traffic"></h2>
 
 		<table class="platforms">
 			<tr>
-				<th>Platform</th>
-				<th>Track</th>
-				<th>Length</th>
+				<th id="platform"></th>
+				<th id="track"></th>
+				<th id="len"></th>
 				<th></th>
-				<th>Remarks to passenger traffic</th>
+				<th id="pt-remarks"></th>
 			</tr>
 
 			<xsl:apply-templates select="bahnsteig"/>
@@ -253,7 +258,7 @@
 
 <xsl:template match="bahnsteig[1]">
 	<tr>
-		<td>Platform <strong><xsl:value-of select="name"/></strong></td>
+		<td><span id="platform"></span>&#160;<strong><xsl:value-of select="name"/></strong></td>
 		<td class="mitte">
 			<xsl:call-template name="recurse_id">
 				<xsl:with-param name="key" select="'gleise'"/>
@@ -273,7 +278,7 @@
 
 <xsl:template match="bahnsteig">
 	<tr>
-		<td>Platform <strong><xsl:value-of select="name"/></strong></td>
+		<td><span id="platform"></span>&#160;<strong><xsl:value-of select="name"/></strong></td>
 		<td class="mitte">
 			<xsl:call-template name="recurse_id">
 				<xsl:with-param name="key" select="'gleise'"/>
@@ -308,23 +313,23 @@
 <xsl:template match="gv">
 	<table class="section">
 	<tr><td>
-	<h2>Cargo traffic</h2>
-	<h3>Loading places</h3>
+	<h2 id="cargo-traffic"></h2>
+	<h3 id="loading-places"></h3>
 
 	<table class="cplaces">
 	<tr>
-		<th>Loading place</th>
-		<th>Track</th>
-		<th>Length</th>
-		<th>Axles</th>
+		<th id="loading-place"></th>
+		<th id="track"></th>
+		<th id="len"></th>
+		<th id="axles"></th>
 		<th></th>
-		<th>Remarks to cargo traffic</th>
+		<th id="ct-remarks"></th>
 	</tr>
 
 	<xsl:apply-templates select="ladestelle"/>
 
 	<tr style="font-weight: bold">
-		<td>Sum:</td>
+		<td><span id="sum"></span>:</td>
 		<td></td>
 		<td></td>
 		<td class="rechts">
@@ -338,14 +343,14 @@
 	</table>
 
 	<table class="goods">
-		<h3>Goods</h3>
+		<h3 id="goods"></h3>
 		<tr>
-			<th>Distributor / Receiver</th>
-			<th>D/R</th>
-			<th>Goods</th>
-			<th>Car type</th>
-			<th>Loading place</th>
-			<th>Car quantity</th>
+			<th id="dr"></th>
+			<th id="dorr"></th>
+			<th id="goods"></th>
+			<th id="car-type"></th>
+			<th id="loading-place"></th>
+			<th id="car-quantity"></th>
 		</tr>
 		<xsl:apply-templates select="verlader"/>
 	</table>
@@ -373,9 +378,9 @@
 		<td></td>
 
 		<td rowspan="{count(../ladestelle)+1}">
-					<xsl:call-template name="recurse_break">
-						<xsl:with-param name="idlist" select="bemerkung"/>
-					</xsl:call-template>
+			<xsl:call-template name="recurse_break">
+				<xsl:with-param name="idlist" select="bemerkung"/>
+			</xsl:call-template>
 		</td>
 
 	</tr>
@@ -459,7 +464,7 @@
 <xsl:template match="bemerkung">
 	<table class="section">
 	<tr><td>
-		<h2>General remarks to station</h2>
+		<h2 id="gr"></h2>
 			<xsl:call-template name="recurse_break">
 				<xsl:with-param name="idlist" select="."/>
 			</xsl:call-template>
@@ -470,7 +475,7 @@
 <xsl:template name="caroutput">
 	<table class="section">
 	<tr><td>
-	<h2>Summary</h2>
+	<h2 id="summary"></h2>
 
 	<table class="sum">
 
@@ -485,28 +490,28 @@
 			  Man erhaelt auf diese Weise IMMER die richtige Menge am Ende!
 		-->
 		<tr>
-			<th>Cars-\Quantity</th>
-			<th>per day</th>
-			<th>per week</th>
+			<th id="cars-quantity"></th>
+			<th id="per-day"></th>
+			<th id="per-week"></th>
 		</tr>
 		<tr>
-			<td><xsl:text>Receiving</xsl:text></td>
+			<td id="receiving"></td>
 			<td><xsl:value-of select="format-number(sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag'])+((sum(gv/verlader/empfang/ladegut/wagen)-sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag'])) div $week),'###.#')"/></td>
 			<td><xsl:value-of select="($week* sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag']))+(sum(gv/verlader/empfang/ladegut/wagen)-sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag']))"/></td>
 		</tr>
 		<tr>
-			<td><xsl:text>Distribution</xsl:text></td>
+			<td id="distribution"></td>
 			<td><xsl:value-of select="format-number(sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag'])+((sum(gv/verlader/versand/ladegut/wagen)-sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag'])) div $week),'###.#')"/></td>
 			<td><xsl:value-of select="($week* sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag']))+(sum(gv/verlader/versand/ladegut/wagen)-sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag']))"/></td>
 		</tr>
 		<tr>
-			<td><xsl:text>Total</xsl:text></td>
+			<td id="total"></td>
 			<td><xsl:value-of select="format-number(sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag'])+sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag'])+((sum(gv/verlader/empfang/ladegut/wagen)+sum(gv/verlader/versand/ladegut/wagen)-sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag'])-sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag'])) div $week),'###.#')"/></td>
 			<td><xsl:value-of select="($week* ( sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag'])+sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag']) ))+(sum(gv/verlader/empfang/ladegut/wagen)+sum(gv/verlader/versand/ladegut/wagen)-sum(gv/verlader/empfang/ladegut/wagen[@zeitraum='tag'])-sum(gv/verlader/versand/ladegut/wagen[@zeitraum='tag']))"/></td>
 		</tr>
 	</table>
 	</td></tr>
-		<tr><td class="mitte" colspan="{$maxcols}"><xsl:text disable-output-escaping="yes">Note: The results are calculated based on assumptions: 7 days a week and no reloading of empty cars!</xsl:text></td></tr>
-	  </table>
+		<tr><td class="mitte" colspan="{$maxcols}" id="sum-note"></td></tr>
+	</table>
 	</xsl:template>
 </xsl:stylesheet>

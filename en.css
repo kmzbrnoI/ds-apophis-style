@@ -1,0 +1,41 @@
+#main-capt:after { content: "station" }
+#short:after { content: "Short:" }
+#type:after { content: "Type:" }
+#scale:after { content: "Scale:" }
+#module-id:after { content: "Module ID:" }
+
+#tracks:after { content: "Tracks" }
+#main-tracks:after { content: "Main tracks" }
+#side-tracks:after { content: "Side tracks" }
+#track:after { content: "Track" }
+#len:after { content: "Length" }
+#axles:after { content: "Axles" }
+#track-remarks:after { content: "Remarks" }
+#track-note:after { content: "Note: Calculation of effective length based on assumptions: 10 cm effective length correspond to 2 axles." }
+
+#passenger-traffic:after { content: "Passenger traffic" }
+#platform:after { content: "Platform" }
+#pt-remarks:after { content: "Remarks to passenger traffix" }
+
+#cargo-traffic:after { content: "Cargo traffic" }
+#loading-places:after { content: "Loading places" }
+#loading-place:after { content: "Loading place" }
+#ct-remarks:after { content: "Remarks to cargo traffic" }
+#sum:after { content: "Sum" }
+#goods:after { content: "Goods" }
+#dr:after { content: "Distributor / Receiver" }
+#dorr:after { content: "D/R" }
+#car-type:after { content: "Car type" }
+#loading-place:after { content: "Loading place" }
+#car-quantity:after { content: "Car quantity" }
+#gr:after { content: "General remarks to station" }
+
+#summary:after { content: "Summary" }
+#cars-quantity:after { content: "Cars/Quantity" }
+#per-day:after { content: "per day" }
+#per-week:after { content: "per week" }
+#receiving:after { content: "Receiving" }
+#distribution:after { content: "Distribution" }
+#total:after { content: "Total" }
+#sum-note:after { content: "Note: The results are calculated based on assumptions: 7 days a week and no reloading of empty cars!" }
+
