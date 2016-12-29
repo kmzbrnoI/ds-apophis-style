@@ -430,8 +430,8 @@
 				</xsl:if>
 				<td class="mitte">
 				<xsl:choose>
-					<xsl:when test="local-name(..)='empfang'">R</xsl:when>
-					<xsl:otherwise>D</xsl:otherwise>
+					<xsl:when test="local-name(..)='empfang'"><span id="r"></span></xsl:when>
+					<xsl:otherwise><span id="d"></span></xsl:otherwise>
 				</xsl:choose>
 				</td>
 				<td><xsl:value-of select="name"/></td>

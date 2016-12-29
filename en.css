@@ -24,6 +24,8 @@
 #sum:after { content: "Sum" }
 #goods:after { content: "Goods" }
 #dr:after { content: "Distributor / Receiver" }
+#d:after { content: "D" }
+#r:after { content: "R" }
 #dorr:after { content: "D/R" }
 #car-type:after { content: "Car type" }
 #car-quantity:after { content: "Car quantity" }

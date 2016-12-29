@@ -24,6 +24,8 @@
 #sum:after { content: "Suma" }
 #goods:after { content: "Zboži" }
 #dr:after { content: "Distributor / Příjemce" }
+#d:after { content: "D" }
+#r:after { content: "P" }
 #dorr:after { content: "D/P" }
 #car-type:after { content: "Typ vozu" }
 #car-quantity:after { content: "Počet vozů" }
