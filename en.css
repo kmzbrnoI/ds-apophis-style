@@ -15,7 +15,7 @@
 
 #passenger-traffic:after { content: "Passenger traffic" }
 #platform:after { content: "Platform" }
-#pt-remarks:after { content: "Remarks to passenger traffix" }
+#pt-remarks:after { content: "Remarks to passenger traffic" }
 
 #cargo-traffic:after { content: "Cargo traffic" }
 #loading-places:after { content: "Loading places" }
@@ -26,7 +26,6 @@
 #dr:after { content: "Distributor / Receiver" }
 #dorr:after { content: "D/R" }
 #car-type:after { content: "Car type" }
-#loading-place:after { content: "Loading place" }
 #car-quantity:after { content: "Car quantity" }
 #gr:after { content: "General remarks to station" }
 
@@ -37,5 +36,7 @@
 #receiving:after { content: "Receiving" }
 #distribution:after { content: "Distribution" }
 #total:after { content: "Total" }
+#day:after { content: "day" }
+#week:after { content: "week" }
 #sum-note:after { content: "Note: The results are calculated based on assumptions: 7 days a week and no reloading of empty cars!" }
 

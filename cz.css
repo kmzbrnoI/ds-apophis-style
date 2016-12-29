@@ -1,0 +1,42 @@
+#main-title:after { content: "Datový list" }
+#short:after { content: "Zkratka:" }
+#type:after { content: "Typ:" }
+#scale:after { content: "Měřítko:" }
+#module-id:after { content: "ID modulu:" }
+
+#tracks:after { content: "Koleje" }
+#main-tracks:after { content: "Hlavní koleje" }
+#side-tracks:after { content: "Manipulační koleje" }
+#track:after { content: "Kolej" }
+#len:after { content: "Délka" }
+#axles:after { content: "Náprav" }
+#track-remarks:after { content: "Poznámka" }
+#track-note:after { content: "Pozor: Výpočet počtu náprav předpokládá: 10 cm efektivní délky odpovídá 2 nápravám." }
+
+#passenger-traffic:after { content: "Osobní doprava" }
+#platform:after { content: "Perón" }
+#pt-remarks:after { content: "Poznámky k osobní dopravě" }
+
+#cargo-traffic:after { content: "Nákladní doprava" }
+#loading-places:after { content: "Nákladové plochy" }
+#loading-place:after { content: "Nákladová plocha" }
+#ct-remarks:after { content: "Poznámky k nákladní dopravě" }
+#sum:after { content: "Suma" }
+#goods:after { content: "Zboži" }
+#dr:after { content: "Distributor / Příjemce" }
+#dorr:after { content: "D/R" }
+#car-type:after { content: "Typ vozu" }
+#car-quantity:after { content: "Počet vozů" }
+#gr:after { content: "Obecné poznámky ke stanici" }
+
+#summary:after { content: "Celkem" }
+#cars-quantity:after { content: "Vozy/množství" }
+#per-day:after { content: "za den" }
+#per-week:after { content: "za týden" }
+#receiving:after { content: "Dovoz" }
+#distribution:after { content: "Vývoz" }
+#total:after { content: "Celkem" }
+#day:after { content: "den" }
+#week:after { content: "týden" }
+#sum-note:after { content: "Pozor: výsledky jsou založeny na předpokladech: týden má 7 dní, prázdné vozy se nenakládají znovu." }
+

@@ -453,8 +453,8 @@
 	<xsl:choose>
 		<xsl:when test="@zeitraum">
 			<xsl:choose>
-			<xsl:when test="@zeitraum='tag'">day</xsl:when>
-					<xsl:when test="@zeitraum='woche'">week</xsl:when>
+			<xsl:when test="@zeitraum='tag'"><span id="day"></span></xsl:when>
+					<xsl:when test="@zeitraum='woche'"><span id="week"></span></xsl:when>
 				</xsl:choose>
 			</xsl:when>
 			<xsl:otherwise>week</xsl:otherwise>
