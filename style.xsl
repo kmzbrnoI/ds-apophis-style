@@ -342,8 +342,8 @@
 	</tr>
 	</table>
 
+	<h3 id="goods"></h3>
 	<table class="goods">
-		<h3 id="goods"></h3>
 		<tr>
 			<th id="dr"></th>
 			<th id="dorr"></th>
