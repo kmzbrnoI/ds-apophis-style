@@ -5,7 +5,7 @@
 #module-id:after { content: "ID modulu:" }
 
 #tracks:after { content: "Koleje" }
-#main-tracks:after { content: "Hlavní koleje" }
+#main-tracks:after { content: "Dopravní koleje" }
 #side-tracks:after { content: "Manipulační koleje" }
 #track:after { content: "Kolej" }
 #len:after { content: "Délka" }
