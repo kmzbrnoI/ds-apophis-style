@@ -1,4 +1,4 @@
-#main-capt:after { content: "station" }
+#main-title:after { content: "Datasheet of" }
 #short:after { content: "Short:" }
 #type:after { content: "Type:" }
 #scale:after { content: "Scale:" }

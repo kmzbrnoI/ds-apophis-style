@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<xsl:for-each select="bahnhof">
-			<div id="main-capt"></div>
+			<div id="main-capt"><span id="main-title"></span>&#160;<xsl:value-of select="langtyp"/></div>
 			<h1><xsl:value-of select="name"/></h1>
 			<table class="head">
 				<tr>
