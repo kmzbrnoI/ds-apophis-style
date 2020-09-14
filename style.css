@@ -99,8 +99,7 @@ td.mitte {
 .head img {
 	display: block;
 	margin: auto;
-	max-width: inherit;
-	width: 100%;
+	max-width: 100%;
 }
 
 /*----------------------------------------------------------------------------*/

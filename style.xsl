@@ -156,7 +156,7 @@
 </xsl:template>
 
 <xsl:template match="plan">
-	<img src="{@src}" />
+	<img src="{@src}" style="max-height: {@max-height};"/>
 </xsl:template>
 
 <xsl:template match="gleise">
